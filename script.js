@@ -1,7 +1,7 @@
 $(function() { // Makes sure that your function is called once all the DOM elements of the page are ready to be used.
 
 	// Input pet name
-	var name = prompt("Please name your jellyfish gigapet!", "Jumpy");
+	var name = prompt("Please name your jellyfish giga pet!", "Jumpy");
 
 	if (name == null) {
 	    pet_info['name'] = 'Jumpy';
@@ -11,8 +11,10 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
 		checkAndUpdatePetInfoInHtml();
 	}
 
+	document.title = pet_info['name'] + " - Your Giga Pet"
+
 	var random_sick = Math.floor((Math.random() * 10) + 1);
-	random_sick = 1; //debug
+	//random_sick = 1; //debug
 
 	if (random_sick = 1) {
 		pet_info['sick'] = true;
@@ -47,6 +49,7 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     function clickedTreatButton() {
 	    if (pet_info['sick']) {
 	    	addComment("I don't feel like eating right now.");
+	    	checkAndUpdatePetInfoInHtml();
         } else {
       	  	// Increase pet happiness
 		    pet_info['happiness'] += 1;
@@ -61,6 +64,7 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     function clickedPlayButton() {
 	    if (pet_info['sick']) {
 	      	addComment("I'm too weak to play right now.");
+	      	checkAndUpdatePetInfoInHtml();
 	      } else {
 	        // Increase pet happiness
 	        pet_info['happiness'] += 1;
@@ -74,7 +78,8 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     
     function clickedExerciseButton() {
 	    if (pet_info['sick']) {
-	      	addComment("I'm too weak to play right now.");
+	      	addComment("I'm too weak to exercise right now.");
+	      	checkAndUpdatePetInfoInHtml();
 	      } else {
       	    // Decrease pet happiness
       		pet_info['happiness'] -= 1;
@@ -91,6 +96,8 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     function clickedDisciplineButton() {
       if (pet_info['sick']) {
 	      	addComment("It's not my fault I'm sick!");
+	      	pet_info['frustrated'] += 1;
+	      	checkAndUpdatePetInfoInHtml();
 	      } else {
 		      // Decrease pet happiness
 		      pet_info['happiness'] -= 1;
@@ -103,7 +110,22 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     }
 
     function clickedMedicineButton() {
+    	if (pet_info['sick']) {
+    		pet_info['sick'] = false;
+    		pet_info['frustrated'] = 0;
+    		pet_info['happiness'] = 2;
 
+    		checkAndUpdatePetInfoInHtml();
+    		addComment("I'm feeling better now. Thanks!");
+    	} else {
+    		pet_info['sick'] = true;
+    		pet_info['happiness'] = 0;
+			pet_info['frustrated'] = 4;
+			alert(pet_info['name'] + " is sick!");
+
+			checkAndUpdatePetInfoInHtml();
+			addComment("I'm suddenly not feeling so well. Why did you give me that?");
+    	}
     }
   
     function checkAndUpdatePetInfoInHtml() {
