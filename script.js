@@ -14,7 +14,7 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
 	document.title = pet_info['name'] + " - Your Giga Pet"
 
 	var random_sick = Math.floor((Math.random() * 10) + 1);
-	alert(random_sick);
+	//alert(random_sick);
 	//random_sick = 1; //debug
 
 	if (random_sick == 1) {
