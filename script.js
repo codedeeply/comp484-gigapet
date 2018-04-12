@@ -14,9 +14,10 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
 	document.title = pet_info['name'] + " - Your Giga Pet"
 
 	var random_sick = Math.floor((Math.random() * 10) + 1);
+	alert(random_sick);
 	//random_sick = 1; //debug
 
-	if (random_sick = 1) {
+	if (random_sick == 1) {
 		pet_info['sick'] = true;
 		pet_info['happiness'] = 0;
 		pet_info['frustrated'] = 4;
@@ -96,7 +97,7 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     function clickedDisciplineButton() {
       if (pet_info['sick']) {
 	      	addComment("It's not my fault I'm sick!");
-	      	pet_info['frustrated'] += 1;
+	      	pet_info['frustrated'] += 2;
 	      	checkAndUpdatePetInfoInHtml();
 	      } else {
 		      // Decrease pet happiness
@@ -136,7 +137,7 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     function checkWeightAndHappinessBeforeUpdating() {
       // Add conditional so if weight is lower than zero, set it back to zero
       if (pet_info['happiness'] < 0) {
-      	pet_info['weight'] = 0;
+      	pet_info['happiness'] = 0;
       }
       // Also check for frustrated under zero
       if (pet_info['frustrated'] < 0) {
