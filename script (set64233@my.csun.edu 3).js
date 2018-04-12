@@ -90,7 +90,7 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
 
     function clickedDisciplineButton() {
       if (pet_info['sick']) {
-	      	addComment("It's not my fault I'm sick!");
+	      	addComment("I'm too weak to play right now.");
 	      } else {
 		      // Decrease pet happiness
 		      pet_info['happiness'] -= 1;
