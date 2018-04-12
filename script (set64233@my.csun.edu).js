@@ -45,47 +45,43 @@ $(function() { // Makes sure that your function is called once all the DOM eleme
     }
   
     function clickedTreatButton() {
-	    if (pet_info['sick']) {
-	    	addComment("I don't feel like eating right now.");
-        } else {
-      	  	// Increase pet happiness
-		    pet_info['happiness'] += 1;
-		    // Increase pet weight
-		    pet_info['weight'] += 1;
+      if (pet_info['sick']) {
+      	addComment("I don't feel like eating right now.");
+      } else {
+	  	// Increase pet happiness
+	    pet_info['happiness'] += 1;
+	    // Increase pet weight
+	    pet_info['weight'] += 1;
 
-		    checkAndUpdatePetInfoInHtml();
-	  	    addComment("Thanks for the treat!");
-		  }
+	    checkAndUpdatePetInfoInHtml();
+  	    addComment("Thanks for the treat!");
+	  }
     }
     
     function clickedPlayButton() {
-	    if (pet_info['sick']) {
-	      	addComment("I'm too weak to play right now.");
-	      } else {
-	        // Increase pet happiness
-	        pet_info['happiness'] += 1;
-	        // Decrease pet weight
-	        pet_info['weight'] -= 1;
+    if (pet_info['sick']) {
+      	addComment("I'm too weak to play right now.");
+      } else {
+        // Increase pet happiness
+        pet_info['happiness'] += 1;
+        // Decrease pet weight
+        pet_info['weight'] -= 1;
 
-	        checkAndUpdatePetInfoInHtml();
-	        addComment("I love to play!");
-	      }
+        checkAndUpdatePetInfoInHtml();
+        addComment("I love to play!");
+      }
     }
     
     function clickedExerciseButton() {
-	    if (pet_info['sick']) {
-	      	addComment("I'm too weak to play right now.");
-	      } else {
-      	    // Decrease pet happiness
-      		pet_info['happiness'] -= 1;
-      		// Decrease pet weight
-      		pet_info['weight'] -= 1;
-      		// Increase pet frustrated
-      		pet_info['frustrated'] += 1;
+      // Decrease pet happiness
+      pet_info['happiness'] -= 1;
+      // Decrease pet weight
+      pet_info['weight'] -= 1;
+      // Increase pet frustrated
+      pet_info['frustrated'] += 1;
 
-      		checkAndUpdatePetInfoInHtml();
-      		addComment("I'm tired now.");
-      	}
+      checkAndUpdatePetInfoInHtml();
+      addComment("I'm tired now.");
     }
 
     function clickedDisciplineButton() {
